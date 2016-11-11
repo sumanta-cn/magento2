@@ -1,0 +1,96 @@
+<form class="form" id="orderform" action="#" autocomplete="off">
+   <fieldset class="fieldset">
+       <legend class="legend"><span><?php echo __('Request Quote Information') ?></span></legend><br>
+       <div class="messages-pre">
+			<span></span>
+			</div>
+       		<div class="field required">
+            <label for="productid" class="label"><span><?php echo __('Productid') ?></span></label>
+            <div class="control">
+                <input type="text" name="productid" id="productid" value="" title="<?php echo __('Productid') ?>" class="input-text" data-validate="{required:true, 'validate-number':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="productdescription" class="label"><span><?php echo __('Productdescription') ?></span></label>
+            <div class="control">
+                <input type="text" name="productdescription" id="productdescription" value="" title="<?php echo __('ProductDescription') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>      
+            <div class="field required">
+            <label for="firstname" class="label"><span><?php echo __('Firstname') ?></span></label>
+            <div class="control">
+                <input type="text" name="firstname" id="firstname" value="" title="<?php echo __('Firstname') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="lastname" class="label"><span><?php echo __('Lastname') ?></span></label>
+            <div class="control">
+                <input type="text" name="lastname" id="lastname" value="" title="<?php echo __('Lastname') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="email_address" class="label"><span><?php echo __('Email') ?></span></label>
+            <div class="control">
+                <input type="email" name="email" id="email_address" value="" title="<?php echo __('Email') ?>" class="input-text" data-validate="{required:true, 'validate-email':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="mobile-no" class="label"><span><?php echo __('Mobile-No') ?></span></label>
+            <div class="control">
+                <input type="text" name="mobile" id="mobile" value="" title="<?php echo __('Mobile') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+   </fieldset>
+   <div class="pre-section pre-btn-section">
+      <div class="primary">
+			<input type="button" name="submit" class="presubmit" value="SUBMIT" />
+			<input type="button" name="cancel" class="precancel" value="CANCEL" />
+		</div>
+		</div>
+</form>
+<script type="text/javascript">
+require([
+    'jquery',
+    'mage/mage'
+], function($){
+ 
+   var dataForm = $('#orderform');
+   dataForm.mage('validation', {});
+ 
+});
+</script>
+<script type="text/javascript">
+
+		/*Submit Function */
+		require(["jquery"], function ($) {
+    	$(document).ready(function () {	
+    		$('.presubmit').click(function () {
+    			alert("test");
+    			var dataString = $('#orderform').serialize();
+    			//$jj = $.validator.validateElement($('#orderform'));
+    			//if($jj)
+    			if ($('#orderform').valid()) 
+    			{
+    			jQuery(this).attr('disabled','true');  
+					jQuery.ajax({
+					url : "https://localhost/magentovtwo/helloworld/index_index/saverequestquote",
+					type : "POST",
+					data : dataString,
+					success : function(response) {
+						jQuery(".presubmit").removeAttr('disabled');
+					//	jQuery(".input-text").val('');
+						jQuery("div.messages-pre > span").html(response); // append ajax response to message section	
+					}
+				  });
+			}			
+		});
+		/*Cancel Click Function*/
+	/*	jQuery(".precancel").click(function(){ 
+		 	jQuery(".input-text").val('');			
+		}); */
+	});
+	});
+</script>
+    
+
+
