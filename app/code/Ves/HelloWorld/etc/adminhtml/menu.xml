@@ -4,12 +4,12 @@
     	 <add id="Ves_HelloWorld::hello" title="Requestquote" module="Ves_HelloWorld" sortOrder="50" resource="Magento_Backend::content"/>
 
     	 <add id="Ves_HelloWorld::second_level_example"
-             title="Manage Requestquote"
+             title="Mange Requestquote"
              module="Ves_HelloWorld"
              sortOrder="9999"
              resource="Magento_Backend::content"
              parent="Ves_HelloWorld::hello"
-             action="helloworld/news"
+             action="helloworld/helloworld"
             />               
 	      </menu>
 </config>

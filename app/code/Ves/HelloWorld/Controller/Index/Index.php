@@ -44,24 +44,7 @@ class Index extends \Magento\Framework\App\Action\Action {
     	return $resultPage;
 	
     }
-	public function index()
-{
-	//$post = $this->getRequest()->getParam('firstname');
-	//$this->_logger->log(\Psr\Log\LogLevel::DEBUG,$post);
-	      //  if ($post) {
-            // Retrieve your form data
-            //$firstname = $post['firstname'];
-            //$lastname = $post['lastname'];
-		
-	//$model = $this->_objectManager->create('Ves\HelloWorld\Model\Test');
-        //$model->setFirstname($post);
-	//$model->setlastname($lastname);
-        //$model->save();
-	//	}
-	$resultPage = $this->resultPageFactory->create();
-    	$resultPage->getConfig()->getTitle()->prepend(__('HelloWorld'));
-    	return $resultPage;
-}
+	
 
 	 
 }

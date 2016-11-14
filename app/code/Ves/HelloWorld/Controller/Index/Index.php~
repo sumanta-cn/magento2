@@ -24,34 +24,27 @@ class Index extends \Magento\Framework\App\Action\Action {
             // Retrieve your form data
             $firstname = $post['firstname'];
             $lastname = $post['lastname'];
+            $email = $post['email'];
+            $mobile = $post['mobile'];
+            $requestquotedetails = $post['requestquotedetails'];
+            $productid = $post['productid'];
+            $productname = $post['productname'];  
 	$model = $this->_objectManager->create('Ves\HelloWorld\Model\Test');
-        $model->setFirstname($firstname);
+    $model->setFirstname($firstname);
 	$model->setLastname($lastname);
-        $model->save();
+    $model->setEmail($email);
+    $model->setMobile($mobile);
+    $model->setRequestquotedetails($requestquotedetails);
+    $model->setProductid($productid);
+    $model->setProductname($productname);
+    $model->save();
 		}
     	$resultPage = $this->resultPageFactory->create();
     	$resultPage->getConfig()->getTitle()->prepend(__('HelloWorld'));
     	return $resultPage;
 	
     }
-	public function index()
-{
-	//$post = $this->getRequest()->getParam('firstname');
-	//$this->_logger->log(\Psr\Log\LogLevel::DEBUG,$post);
-	      //  if ($post) {
-            // Retrieve your form data
-            //$firstname = $post['firstname'];
-            //$lastname = $post['lastname'];
-		
-	//$model = $this->_objectManager->create('Ves\HelloWorld\Model\Test');
-        //$model->setFirstname($post);
-	//$model->setlastname($lastname);
-        //$model->save();
-	//	}
-	$resultPage = $this->resultPageFactory->create();
-    	$resultPage->getConfig()->getTitle()->prepend(__('HelloWorld'));
-    	return $resultPage;
-}
+	
 
 	 
 }
