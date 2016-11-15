@@ -3,23 +3,27 @@
 
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="../../../../../Magento/Ui/etc/ui_configuration.xsd">
-    
-        
+
+  <argument name="context" xsi:type="configurableObject">
+        <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\Context</argument>
+        <argument name="namespace" xsi:type="string">hello_world_grid</argument>
+        <!-- this should be same as the file name or uicomponentname -->
+    </argument>
+            
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">ves_helloworld_grid.ves_helloworld_grid_data_source</item>
-            <item name="deps" xsi:type="string">ves_helloworld_grid.ves_helloworld_grid_data_source</item>
+            <item name="provider" xsi:type="string">ves_helloworld_grid.ves_helloworld_test_data_source</item>
+            <item name="deps" xsi:type="string">ves_helloworld_grid.ves_helloworld_test_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">ves_helloworld_grid_columns</item>
-
     </argument>
     
-    <dataSource name="company_staff_listing_data_source">
+    <dataSource name="ves_helloworld_test_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="name" xsi:type="string">ves_helloworld_grid_data_source</argument>
+            <argument name="name" xsi:type="string">ves_helloworld_test_data_source</argument>
             <argument name="class" xsi:type="string">Ves\HelloWorld\Ui\DataProvider\HelloworldDataProvider</argument>
-            <argument name="primaryFieldName" xsi:type="string">staff_id</argument>
-            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">firstname</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render" />
@@ -59,12 +63,7 @@
                             <item name="1" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">ves_helloworld_grid.ves_helloworld_grid.ves_helloworld_grid.listing_top.bookmarks</item>
-                        <item name="root" xsi:type="string">columns.${ $.index }</item>
-                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root }</item>
-                    </item>
-                </item>
+                     </item>
             </item>
         </argument>
         <selectionsColumn name="id">
@@ -76,6 +75,18 @@
                 </item>
             </argument>
         </selectionsColumn>
+        <column name="productname">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">ProductName</item>
+                </item>
+            </argument>
+        </column>
         <column name="firstname">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -84,7 +95,67 @@
                     <item name="sortable" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="align" xsi:type="string">left</item>
-                    <item name="label" xsi:type="string" translate="true">Staff ID</item>
+                    <item name="label" xsi:type="string" translate="true">FirstName</item>
+                </item>
+            </argument>
+        </column>
+         <column name="lastname">
+        <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">LastName</item>
+                </item>
+            </argument>
+        </column>
+        <column name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                </item>
+            </argument>
+        </column>
+        <column name="mobile">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">Mobile</item>
+                </item>
+            </argument>
+        </column>
+        <column name="requestquotedetails">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="align" xsi:type="string">left</item>
+                    <item name="label" xsi:type="string" translate="true">Requestquotedetails</item>
                 </item>
             </argument>
         </column>
