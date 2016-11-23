@@ -1,0 +1,65 @@
+<?php 
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');//get current product
+    $productid  = $product->getId();
+    $productname  =  $product->getName();
+?>
+<form data-mage-init='{"validation": {}}' name="requestquoteform" id="orderform" action="<?php echo $block->get()?>" method="POST">
+<fieldset class="fieldset">
+       <legend class="legend"><span><?php echo __('Request Quote Information') ?></span></legend><br>
+       <div class="messages-pre">
+            <span></span>
+            </div>
+            <div class="field required">
+            <label for="productid" class="label"><span><?php echo __('Productid') ?></span></label>
+            <div class="control">
+                <input type="text" name="productid" id="productid" value="" title="<?php echo __('Productid') ?>" class="input-text" data-validate="{required:true, 'validate-productid':true} ">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="productname" class="label"><span><?php echo __('ProductName') ?></span></label>
+            <div class="control">
+                <input type="text" name="productname" id="productname" value="" title="<?php echo __('ProductName') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>      
+            <div class="field required">
+            <label for="firstname" class="label"><span><?php echo __('Firstname') ?></span></label>
+            <div class="control">
+                <input type="text" name="firstname" id="firstname" value="" title="<?php echo __('Firstname') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="lastname" class="label"><span><?php echo __('Lastname') ?></span></label>
+            <div class="control">
+                <input type="text" name="lastname" id="lastname" value="" title="<?php echo __('Lastname') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="email_address" class="label"><span><?php echo __('Email') ?></span></label>
+            <div class="control">
+                <input type="email" name="email" id="email_address" value="" title="<?php echo __('Email') ?>" class="input-text" data-validate="{required:true, 'validate-email':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="mobile-no" class="label"><span><?php echo __('Mobile-No') ?></span></label>
+            <div class="control">
+                <input type="text" name="mobile" id="mobile" value="" title="<?php echo __('Mobile') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+            <div class="field required">
+            <label for="Requestquote Details" class="label"><span><?php echo __('Requestquote Details') ?></span></label>
+            <div class="control">
+                <input type="text" name="requestquotedetails" id="requestquotedetails" value="" title="<?php echo __('Requestquote Details') ?>" class="input-text" data-validate="{required:true, 'validate-text':true}">
+            </div>
+            </div>
+   </fieldset>
+   <div class="actions-toolbar">
+        <div class="primary">
+<input type="submit" name="send_sms" class="action submit primary" value="Submit"/><br/>
+</div>
+</div>
+</form>
+
+
+
+
