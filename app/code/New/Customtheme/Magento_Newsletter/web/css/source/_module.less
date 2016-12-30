@@ -1,0 +1,131 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+     border-right: 1px solid #dcdcdc;
+    float: left;
+    padding: 0 37px 30px;
+    width: 350px;
+        
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+       
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+                }
+
+        input {
+            padding-left: 35px;
+        }
+
+        .title strong{
+    color: #2c2c2c;
+    font-family: "AbrilFatfaceRegular";
+    font-size: 20px;
+    line-height: 27px;
+        }
+// custom change to modify newsletter title
+
+.block.newsletter .title strong {
+  color: #2c2c2c;
+  font-family: "AbrilFatfaceRegular";
+  font-size: 20px;
+  line-height: 27px;
+}
+
+// custom change to modify input box 
+
+.field.newsletter input {
+    border: 1px solid #c7c7c7;
+    border-radius: 50px;
+    height: 44px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+// custom change to modify button
+
+    #newsletter-validate-detail.actions.action subscribe primary {
+    background: #009b3a url("../images/arrow_subsc.png") no-repeat scroll center center;
+    border: 0 none;
+    border-radius: 50% !important;
+    height: 87px;
+    text-indent: -9999px;
+    transition: all 0.5s ease 0s;
+    width: 43px;
+}
+// custom change to modify input field
+
+.field.newsletter input {
+    border: 1px solid #c7c7c7;
+    border-radius: 50px;
+    height: 44px;
+    padding-left: 20px;
+    width: 100%;
+}
+// custom change to modify  newsletter
+#newsletter-validate-detail .actions .action.primary {
+  background: #009b3a url("../images/arrow_subsc.png") no-repeat scroll center center;
+  border: 0 none;
+  border-radius: 50% !important;
+  height: 43px;
+  text-indent: -9999px;
+  transition: all 0.5s ease 0s;
+  width: 43px;
+}
+// custom change to modify  newsletter subscription
+.block.newsletter .action.subscribe {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-left: -1px;
+}
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            display: table-cell;
+            vertical-align: top;
+            width: 1%;
+        }
+
+        .action.subscribe {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-left: -1px;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block.newsletter {
+        width: 34%;
+    }
+}
+
+
